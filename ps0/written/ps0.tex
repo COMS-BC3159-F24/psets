@@ -1,0 +1,286 @@
+\documentclass[]{article}
+
+\usepackage{tcolorbox, booktabs, tikz, tikzsymbols, 
+            lmodern, amssymb, amsmath, ifxetex, ifluatex, 
+            hyperref, listings, float, graphicx, caption,
+            fancyhdr, framed, xcolor}
+
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
+
+% Box Macros
+\DeclareRobustCommand{\colorbox}[3][gray!10]{
+  \begin{tcolorbox}[left=8pt, arc=0pt, outer arc=0pt, colframe=#1, colback=#1, coltext=black] #2 \end{tcolorbox}
+}
+
+\DeclareRobustCommand{\solutionbox}[2][gray!20]{%
+\begin{tcolorbox}[left=2pt, arc=0pt, outer arc=0pt, colframe = gray!10] \begin{center} #2 \end{center} \end{tcolorbox}}
+
+% Paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+
+% No monospace font for urls
+\urlstyle{same}  
+\usepackage{hyperref}
+\hypersetup{
+            colorlinks=true,
+            linkcolor=Maroon,
+            filecolor=Maroon,
+            citecolor=Blue,
+            urlcolor=blue,
+            breaklinks=true
+}
+
+% Code formatting
+\usepackage[dvipsnames]{xcolor}
+\lstset{
+  language=python,
+  basicstyle=\ttfamily,
+  commentstyle=\color{BrickRed},
+  stringstyle=\color{ForestGreen},
+  showstringspaces=false,
+  keywordstyle=\color{Purple},
+  emph={def},
+  emphstyle=\color{RoyalBlue}
+}
+
+
+\fancypagestyle{default}{
+    \lhead{Problem Set 0}
+    \chead{}
+    \rhead{\textbf{COMS BC3159}}
+    \lfoot{}
+    \cfoot{}
+    \rfoot{\thepage}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\pagestyle{default}% Default page style
+\fancypagestyle{plain}{\pagestyle{default}}
+
+
+\title{\textbf{COMS BC3159:} Problem Set 0}
+\author{\textbf{Due} Friday, September 13, 2024 11:59 PM\\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                                       %
+    % TODO: Your Name Here                  %
+    %                                       %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}
+\date{}
+
+\begin{document}
+\maketitle
+
+\colorbox[blue!5] {
+Hello and welcome to COMS BC3159!
+\begin{center}{\fontfamily{bch}\selectfont ``Ugh, why do I have to do PS0?  We haven't even learned anything yet!?''}
+\end{center}
+Take this opportunity to \textbf{practice} completing and turning in assignments for our class.  After PS0, we will expect you to know the infrastructure for submissions.\\
+
+PS0 should \textbf{not} feel arduous nor time consuming---if you are struggling with this assignment, please do reach out to teaching staff or other classmates!
+}
+
+\colorbox {
+Please show your work for all solutions to receive partial/full credit.  Feel free to use Ed for clarification of any given question.  Always turn in \textit{only} your own, independent work.  Scan, upload, and \textbf{submit via Gradescope} (assign each question to a page in your submission).  For our late policy, refer to the syllabus.  All other administrative questions can be posted on Slack.
+}
+
+\vspace{0.5cm}
+
+\textbf{Collaborators:}\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Names of any Collaborators Here %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\\
+\textbf{AI Tool Disclosure:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: How did you use AI tools?       %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+The following exercises will review some math and (re)introduce the type-setting tool \LaTeX. In addition to these written problems, you will also complete the coding part of the assignment, found in the GitHub repo.\\
+
+\section{Algebra, the linear kind. (2 points)}
+Solve the following system of linear equations for $x, y, \text{ and } z$. Show your work and use matrix algebra.
+\colorbox[blue!5]{
+\vspace{-3mm}
+\begin{equation*}
+    \begin{split}
+        x + 2y + 3z &= 1 \\
+        2x + 2y + 3z &= 2 \\
+        x + 3y + 4z &= 2
+    \end{split}.
+\end{equation*}
+}
+
+Hint: the inverse of
+    $\begin{bmatrix}
+        1 & 2 & 3\\
+        2 & 2 & 3\\
+        1 & 3 & 4
+        \end{bmatrix}$
+    is
+    $\begin{bmatrix}
+        -1 & 1 & 0\\
+        -5 & 1 & 3\\
+        4 & -1 & -2
+        \end{bmatrix}$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO: Your solution to Problem 1      %
+%                                       %
+%                                       %
+%                                       %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\section{Calculus, the multivariable kind. (4 points)}
+\subsection{Minimize! (2 points)}
+Suppose that we wish to minimize some loss function $\mathcal{L}$ with respect to a variable $x$ where:
+$$\mathcal{L}(x) = 3x^2 + 2x - 1$$
+
+Given this loss function, what value of $x$ minimizes the loss?  In other words, for what value of $x$ is this function minimal?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO: Your solution to Problem 2.1    %
+%                                       %
+%                                       %
+%                                       %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{5cm}
+
+\subsection{Differentiate! Partially.  (2 points)}
+Find the partial derivative $\frac{\partial f}{\partial x}$ of the following function:
+$$ f(x, y) = 3x^2 + 2xy - 5y^2 $$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO: Your solution to Problem 2.2    %
+%                        Part 1         %
+%                                       %
+%                                       %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{4cm}
+
+Now evaluate that derivative at $(x,y) = (2,3)$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO: Your solution to Problem 2.2    %
+%                        Part 2         %
+%                                       %
+%                                       %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{1.5cm}
+
+\newpage
+\section{Asymptotically! (2 points)}
+In this class, we will loosely use Big-O asymptotic notation.  This notation provides a common vocabulary to discuss run-times of algorithms.
+\begin{itemize}
+\item For a simple beginner's guide, see \href{https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/}{here}.
+\item Recall that the insertion sort algorithm takes $O(n^2)$ time---where $n$ is the length of the list to sort.
+\item Merge sort takes $O(n\log n)$ time.
+\end{itemize}
+
+Consider the following code excerpts:
+\begin{tcolorbox}[left=14pt, arc=0pt, outer arc=0pt, colframe=blue!5, colback=blue!5]
+\begin{lstlisting}
+def sum_list(lst):
+    """
+    Function that returns the sum of elements in lst
+    :param lst: input list
+    :type  lst: [int]
+    :return: sum of the list
+    :rtype : int
+    """
+    rtn = 0
+    for elt in lst:
+        rtn += elt
+    return rtn
+
+
+def foo(lst):
+    """
+    Foo Algorithm
+    :param lst: input list of length n
+    :type  lst: [int]
+    :return: ???
+    :rtype : int
+    """
+    for elt in lst:
+        if elt < 0:
+            return -1
+    return sum_list(lst)
+\end{lstlisting}
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+What is the runtime of the \texttt{foo} algorithm in Big-O notation?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO: Your solution to Problem 3      %
+%                        Part 1         %
+%                                       %
+%                                       %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{2cm}
+
+
+What does the \texttt{foo} function do?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO: Your solution to Problem 3      %
+%                        Part 2         %
+%                                       %
+%                                       %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+
+\section{The Old Man and the \texttt{C} (2 Points)}
+
+Consider the following C code:
+
+\begin{tcolorbox}[left=14pt, arc=0pt, outer arc=0pt, colframe=blue!5, colback=blue!5]
+\begin{lstlisting}[language=c]
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    int* ptr = &arr[2];
+    *ptr = 7;
+    printf("%d\n", *ptr + 2);
+    return 0;
+}
+\end{lstlisting}
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+What values are in the final array? (\textbf{Note:} if you don't remember much about pointers and \texttt{C}/\texttt{C++}, try the coding part of PS0 first, then return to this problem and/or copy and run this code!)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO: Your solution to Problem 4      %
+%                        Part 1         %
+%                                       %
+%                                       %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{3cm}
+
+What is printed out by the function?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO: Your solution to Problem 4      %
+%                        Part 2         %
+%                                       %
+%                                       %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vfill
+\begin{tiny}Updated \today \end{tiny}
+\end{document}
