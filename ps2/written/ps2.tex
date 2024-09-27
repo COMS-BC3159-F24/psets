@@ -1,0 +1,340 @@
+\documentclass[]{article}
+
+\usepackage{tcolorbox, booktabs, tikz, tikzsymbols, 
+            lmodern, amssymb, amsmath, ifxetex, ifluatex, 
+            hyperref, listings, float, graphicx, caption,
+            fancyhdr, framed, xcolor, enumitem}
+
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
+
+% Box Macros
+\DeclareRobustCommand{\colorbox}[3][gray!10]{
+  \begin{tcolorbox}[left=8pt, arc=0pt, outer arc=0pt, colframe=#1, colback=#1, coltext=black] #2 \end{tcolorbox}
+}
+
+\DeclareRobustCommand{\solutionbox}[2][gray!20]{%
+\begin{tcolorbox}[left=2pt, arc=0pt, outer arc=0pt, colframe = gray!10] \begin{center} #2 \end{center} \end{tcolorbox}}
+
+% Paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+
+% No monospace font for urls
+\urlstyle{same}  
+\usepackage{hyperref}
+\hypersetup{
+            colorlinks=true,
+            linkcolor=Maroon,
+            filecolor=Maroon,
+            citecolor=Blue,
+            urlcolor=blue,
+            breaklinks=true
+}
+
+% Code formatting
+\usepackage[dvipsnames]{xcolor}
+\lstset{
+  language=python,
+  basicstyle=\ttfamily,
+  commentstyle=\color{BrickRed},
+  stringstyle=\color{ForestGreen},
+  showstringspaces=false,
+  keywordstyle=\color{Purple},
+  emph={def},
+  emphstyle=\color{RoyalBlue}
+}
+
+
+\fancypagestyle{default}{
+    \lhead{Problem Set 2}
+    \chead{}
+    \rhead{\textbf{COMS BC3159}}
+    \lfoot{}
+    \cfoot{}
+    \rfoot{\thepage}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\pagestyle{default}% Default page style
+\fancypagestyle{plain}{\pagestyle{default}}
+
+
+\title{\textbf{COMS BC3159:} Problem Set 2}
+\author{\textbf{Due} Friday, October 11, 2024 11:59 PM\\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                                       %
+    % TODO: Your Name Here                  %
+    %                                       %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}
+\date{}
+
+\begin{document}
+\maketitle
+
+\colorbox {
+Please show your work for all solutions to receive partial/full credit.  Always turn in \textit{only} your own, independent work to \href{https://www.gradescope.com/courses/820552}{\textbf{Gradescope}} (assign each question to a page in your submission).  For our late policy, refer to the syllabus.  All other questions can be posted on Slack \#ps1.
+}
+
+\vspace{0.5cm}
+
+\textbf{Collaborators:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Names of any Collaborators Here %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\\ \\
+\textbf{AI Tool Disclosure:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: How did you use AI tools?       %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+The following exercises will continue to explore GPU programming and begin to explore numerical optimization. In addition to these written problems, you will also complete the coding part of the assignment, found in the GitHub repo. 
+\vspace{0.5cm}
+\hrule
+
+\section{True or False? (4 Points)}
+For the following statements, please indicate if the statement is true or false and then briefly explain your answer in 1-2 sentences.
+\begin{tcolorbox}[left=14pt, arc=0pt, outer arc=0pt, colframe=blue!5, colback=blue!5]
+\begin{enumerate}[label=(\alph*)]
+    \item Gradient descent will always find a global minima.
+    \item The critical points of a function are where the first derivative (or gradient) of that function is equal to zero. These points are guaranteed to be local minima or maxima.
+    \item If a function is convex then the line segment connecting two points on the graph of $f$ always lies above the graph of $f$.
+    \item Practical gradient descent methods often do not apply the full gradient update at each iteration.
+\end{enumerate}
+\end{tcolorbox}
+
+Solution:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO: Your solution to Problem 1      %
+%       Note you can use $\blacksquare$ %
+%       to fill in true or false!       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{enumerate}[label=(\alph*)]
+    \item $\Box$ True \quad \quad $\Box$ False \\
+    \textit{Explanation: }
+%           % Explanation of 1a
+          
+    \item $\Box$ True \quad \quad $\Box$ False \\
+    \textit{Explanation: }
+%           % Explanation of 1b
+          
+    \item $\Box$ True \quad \quad $\Box$ False \\
+    \textit{Explanation: }
+%           % Explanation of 1c
+          
+    \item $\Box$ True \quad \quad $\Box$ False \\
+    \textit{Explanation: }
+%           % Explanation of 1d
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{The \textit{Other} Taylor (8 points)}
+For this problem we are going to work with the function:
+\begin{tcolorbox}[left=14pt, arc=0pt, outer arc=0pt, colframe=blue!5, colback=blue!5]
+$$y(x) = \frac{3}{2e}(ex-e)^2 - e^x$$
+\end{tcolorbox}
+\begin{enumerate}[label=(\alph*)]
+    \item (3 points) Compute a quadratic approximation $\tilde{y}(x)$ of the function at the point $x=1$ through the use of a Taylor expansion. Please show your work. You do not need to simplify your answer completely.
+    \item (2 points) What are the critical point(s) of the approximation you computed in part (a)? Please show your work.
+    \item (1 point) What are the critical point(s) of the original function?  Note: You do not need to solve this by hand but explain what you did.
+    \item (2 points) Are the critical points the same or different? Why or why not? Please briefly explain.
+\end{enumerate}
+
+\bigskip
+Solution:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Your solution to Problem 2      %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{enumerate}[label=(\alph*)]
+    \item % Your answer to part a
+          
+    \item % Your answer to part b
+        
+    \item % Your answer to part c
+    
+    \item % Your answer to part d
+    
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newpage
+
+\section{Critical Points (12 Points)}
+For this problem we are going to work with the function:
+\begin{tcolorbox}[left=14pt, arc=0pt, outer arc=0pt, colframe=blue!5, colback=blue!5]
+$$y(x) = x^4 - 3x^2 + 2x$$
+\end{tcolorbox}
+Note: You do not need to solve this by hand but explain what you did in each step (do not just write down the final answer).
+\begin{enumerate}[label=(\alph*)]
+    \item (2 points) What are the critical points of this function?
+    \item (2 points) Compute one step of gradient descent starting from $x=-2$ with $\alpha = 0.025$. Where do you end up?
+    \item (1 point) Based on that step do you think $\alpha = 0.025$ was a good choice? If you were to do it again would you leave it the same? Increase it? Decrease it?
+    \item (2 points) Starting at the point computed by part b, take one more step of gradient descent this time using $\alpha = 0.1$. Where do you end up?
+    \item (1 point) Based on that step do you think $\alpha = 0.1$ was a good choice? If you were to do it again would you leave it the same? Increase it? Decrease it?
+    \item (3 points) Now assume you are starting again from $x=-2$ and now doing gradient descent with a backtracking line search starting with $\alpha = 1$ and updating $\alpha = \alpha / 2$ on every backtracking step. With what value of $\alpha$ will the \textit{first} step occur under the cost function $J(x) = (x - nearest\_local\_min)^2$ where $nearest\_local\_min$ is (one of) your value(s) computed in part (a)? Where will that take you?
+    \item (1 point) Based on everything you have explored in this problem, do you think that resulting $\alpha$ from part f was a good choice? If you were to do it again would you leave it the same? Increase it? Decrease it?
+\end{enumerate}
+
+Solution:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Your solution to Problem 3      %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{enumerate}[label=(\alph*)]
+    \item % Your answer to part a
+    
+    \item % Your answer to part b
+    
+    \item % Your answer to part c
+    
+    \item % Your answer to part d
+    
+    \item % Your answer to part e
+    
+    \item % Your answer to part f
+    
+    \item % Your answer to part g
+    
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section{CUDA Kernels (8 Points)}
+Below you will find multiple different examples of GPU kernels designed to add one to the input array in parallel. For this question please assume that the input array is of length 128 and the host code was done correctly. That is, \texttt{N=128} and \texttt{d\_data} was correctly allocated on the GPU to be that length. For each kernel indicate ALL of the kernel launch configurations that will produce the correct output. If none are correct please specify what configuration would work!
+Launch configuration options are:
+\begin{tcolorbox}[left=14pt, arc=0pt, outer arc=0pt, colframe=blue!5, colback=blue!5]
+\begin{enumerate}[label=\roman*.]
+    \item \texttt{increment\_kernel<<<1,1,0,0>>>(d\_data,128);}
+    \item \texttt{increment\_kernel<<<1,128,0,0>>>(d\_data,128);}
+    \item \texttt{increment\_kernel<<<1,256,128*sizeof(int),0>>>(d\_data,128);}
+    \item \texttt{dim3 tDims(128,128);} \\ \texttt{increment\_kernel<<<1,tDims,0,0>>>(d\_data,128);}
+    \item \texttt{dim3 bDims(128,128); tDims(128,128);} \\ \texttt{increment\_kernel<<<bDims,tDims,0,0>>>(d\_data,128);}
+    \item None of the above (please specify the correct configuration)
+\end{enumerate}
+\end{tcolorbox}
+
+\subsection{Kernel (a)}
+\begin{tcolorbox}[left=14pt, arc=0pt, outer arc=0pt, colframe=blue!5, colback=yellow!5]
+\begin{lstlisting}[language=C]
+__global__
+void increment_kernel(int *d_data, int N) {
+    if (threadIdx.x < N) {
+        d_data[threadIdx.x] += 1;
+    }
+}
+\end{lstlisting}
+\end{tcolorbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Your solution to Problem 4.1    %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Kernel (b)}
+\begin{tcolorbox}[left=14pt, arc=0pt, outer arc=0pt, colframe=blue!5, colback=yellow!5]
+\begin{lstlisting}[language=C]
+__global__
+void increment_kernel(int *d_data, int N) {
+    for (int i = threadIdx.x; i < N; i += blockDim.x) {
+        d_data[i] += 1;
+    }
+}
+\end{lstlisting}
+\end{tcolorbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Your solution to Problem 4.2    %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Kernel (c)}
+\begin{tcolorbox}[left=14pt, arc=0pt, outer arc=0pt, colframe=blue!5, colback=yellow!5]
+\begin{lstlisting}[language=C]
+__global__
+void increment_kernel(int *d_data, int N) {
+    d_data[threadIdx.x] += 1;
+}
+\end{lstlisting}
+\end{tcolorbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Your solution to Problem 4.3    %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Kernel (d)}
+\begin{tcolorbox}[left=14pt, arc=0pt, outer arc=0pt, colframe=blue!5, colback=yellow!5]
+\begin{lstlisting}[language=C]
+__global__
+void increment_kernel(int *d_data, int N) {
+  int thread_rank = threadIdx.x + blockDim.x*threadIdx.y;
+  int threads_per_block = blockDim.x*blockDim.y;
+  int block_rank = blockIdx.x + gridDim.x*blockIdx.y;
+  int blocks_per_grid = gridDim.x*gridDim.y;
+  int grid_rank = thread_rank + block_rank*threads_per_block;
+  int threads_per_grid = threads_per_block*blocks_per_grid;
+  for (int i = grid_rank; i < N; i += threads_per_grid) {
+    d_data[i] += 1;
+  }
+}
+\end{lstlisting}
+\end{tcolorbox}
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Your solution to Problem 4.4    %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vfill
+\begin{tiny}Updated \today \end{tiny}
+\end{document}
