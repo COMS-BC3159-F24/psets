@@ -1,0 +1,267 @@
+\documentclass[]{article}
+
+\usepackage{tcolorbox, booktabs, tikz, tikzsymbols,
+            lmodern, amssymb, amsmath, ifxetex, ifluatex,
+            hyperref, listings, float, graphicx, caption,
+            fancyhdr, framed, xcolor, enumitem}
+
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
+
+% Box Macros
+\DeclareRobustCommand{\colorbox}[3][gray!10]{
+  \begin{tcolorbox}[left=8pt, arc=0pt, outer arc=0pt, colframe=#1, colback=#1, coltext=black] #2 \end{tcolorbox}
+}
+
+\DeclareRobustCommand{\solutionbox}[2][gray!20]{%
+\begin{tcolorbox}[left=2pt, arc=0pt, outer arc=0pt, colframe = gray!10] \begin{center} #2 \end{center} \end{tcolorbox}}
+
+% Paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+
+% No monospace font for urls
+\urlstyle{same}
+\usepackage{hyperref}
+\hypersetup{
+            colorlinks=true,
+            linkcolor=Maroon,
+            filecolor=Maroon,
+            citecolor=Blue,
+            urlcolor=blue,
+            breaklinks=true
+}
+
+% Code formatting
+\usepackage[dvipsnames]{xcolor}
+\lstset{
+  language=python,
+  basicstyle=\ttfamily,
+  commentstyle=\color{BrickRed},
+  stringstyle=\color{ForestGreen},
+  showstringspaces=false,
+  keywordstyle=\color{Purple},
+  emph={def},
+  emphstyle=\color{RoyalBlue}
+}
+
+
+\fancypagestyle{default}{
+    \lhead{Problem Set 3}
+    \chead{}
+    \rhead{\textbf{COMS BC3159}}
+    \lfoot{}
+    \cfoot{}
+    \rfoot{\thepage}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\pagestyle{default}% Default page style
+\fancypagestyle{plain}{\pagestyle{default}}
+
+
+\title{\textbf{COMS BC3159:} Problem Set 3}
+\author{\textbf{Due} Wednesday, October 23, 2024 11:59 PM\\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                                       %
+    % TODO: Your Name Here                  %
+    %                                       %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}
+\date{}
+
+\begin{document}
+\maketitle
+
+\colorbox {
+Please show your work for all solutions to receive partial/full credit.  Always turn in \textit{only} your own, independent work to \href{https://www.gradescope.com/courses/820552}{\textbf{Gradescope}} (assign each question to a page in your submission).  For our late policy, refer to the syllabus.  All other questions can be posted on Slack.
+}
+
+\vspace{0.5cm}
+
+\textbf{Collaborators:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Names of any Collaborators Here %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\\ \\
+\textbf{AI Tool Disclosure:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: How did you use AI tools?       %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+The following exercises will continue to explore trajectory optimization.
+\vspace{0.5cm}
+\hrule
+
+\section{Solving Linear Systems (6 Points)}
+For the following questions, briefly explain your answer in 1-3 sentences.
+\begin{tcolorbox}[left=14pt, arc=0pt, outer arc=0pt, colframe=blue!5, colback=blue!5]
+\begin{enumerate}[label=(\alph*)]
+    \item Why might you want to use a factorization method over a standard matrix inverse when you are solving linear system(s) of the form $Ax=b$?
+    \item Why might you prefer to use a factorization based method over an iterative method when you are solving linear system(s) of the form $Ax=b$?
+    \item Why might you prefer to use an iterative method over a factorization based method when you are solving linear system(s) of the form $Ax=b$?
+\end{enumerate}
+\end{tcolorbox}
+
+\bigskip
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Your solution to Problem 1      %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{enumerate}
+%     \item[(a)]
+%     \item[(b)]
+%     \item[(c)]
+% \end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+
+\section{True or False? (8 Points)}
+For the following statements, please indicate if the statement is true or false and then briefly explain your answer in 1-3 sentences.
+\begin{tcolorbox}[left=14pt, arc=0pt, outer arc=0pt, colframe=blue!5, colback=blue!5]
+\begin{enumerate}[label=(\alph*)]
+    \item Constrained optimization problems can always find a local minima via gradient descent.
+    \item Unconstrained optimization problems can always find a local minima via gradient descent.
+    \item Iterative methods for linear system(s) of the form $Ax=b$ where $A\in \mathcal{R}^N$ will always converge in $N$ iterations.
+    \item Adding additional constraints into direct transcription methods does not change the overall structure or
+    algorithmic flow of the problem.
+\end{enumerate}
+\end{tcolorbox}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO: Your solution to Problem 2      %
+%       Note you can use $\blacksquare$ %
+%       to fill in true or false!       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{enumerate}[label=(\alph*)]
+%     \item $\Box$ True \quad \quad $\Box$ False \\
+%     \textit{Explanation: }
+% %           % Explanation of 2a
+
+%     \item $\Box$ True \quad \quad $\Box$ False \\
+%     \textit{Explanation: }
+% %           % Explanation of 2b
+
+%     \item $\Box$ True \quad \quad $\Box$ False \\
+%     \textit{Explanation: }
+% %           % Explanation of 2c
+
+%     \item $\Box$ True \quad \quad $\Box$ False \\
+%     \textit{Explanation: }
+% %           % Explanation of 2d
+% \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+
+
+\section{Pendulum (8 points)}
+Assume you are solving the trajectory optimization problem for a pendulum swinging up from the downward, stable, equilibrium of $x_s = (0,0)$ to the upward, unstable, equilibrium of $x_g = (\pi,0)$ under the following cost function where $Q=I,\ R = 0.1I,\text{ and } Q_D = 100I$:
+
+\begin{tcolorbox}[left=14pt, arc=0pt, outer arc=0pt, colframe=blue!5, colback=blue!5]
+$$J = (x_N-x_g)^TQ_N(x_N-x_g) + \sum_{k=0}^{N-1} (x_k-x_g)^TQ(x_k-x_g) + u_k^TRu_k$$
+\end{tcolorbox}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Assuming that $N=10$ knot points along the trajectory, how many decision variables are there when solving this using a direct transcription method?
+    \item Assuming that $N=10$ knot points along the trajectory, how many decision variables are there when solving this using a differential dynamic programming method?
+    \item Assuming that $N=10$ knot points along the trajectory, what is the minimum number of constraints we need to solve this problem using a direct transcription method?
+    \item Assuming that $N=10$ knot points along the trajectory, what is the minimum number of constraints we need to solve this problem using a differential dynamic programming method?
+\end{enumerate}
+
+\bigskip
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Your solution to Problem 3      %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{enumerate}
+%     \item[(a)]
+%     \item[(b)]
+%     \item[(c)]
+%     \item[(d)]
+% \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newpage
+
+\section{More optimization (4 Points)}
+\begin{tcolorbox}[left=14pt, arc=0pt, outer arc=0pt, colframe=blue!5, colback=blue!5]
+
+\begin{enumerate}[label=(\alph*)]
+    \item True or False? Quadratic penalty methods transform constrained problems into unconstrained problems that can be quickly solved to very high precision in very few iterations. Please explain your answer in 1-3 sentences.
+    \item Imagine you are using an augmented Lagrangian method to solve a 1-dimensional optimization problem with a constraint $g(x) = 3x - 7$ starting with $\mu = 10$. After the first outer iteration the current value of $x = 4$. What would you update $\lambda$ be? Assume that we initialized $\lambda = 0$.
+\end{enumerate}
+\end{tcolorbox}
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO: Your solution to Problem 4      %
+%       Note you can use $\blacksquare$ %
+%       to fill in true or false!       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{enumerate}[label=(\alph*)]
+%     \item $\Box$ True \quad \quad $\Box$ False \\
+%           % Explanation of 4a
+%     \item % Your answer to 4b
+% \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section{Loss (6 Points)}
+    Assume $x$ is a vector in $\mathcal{R}^N$ and that we are optimizing the loss:
+
+\begin{tcolorbox}[left=14pt, arc=0pt, outer arc=0pt, colframe=blue!5, colback=blue!5]
+    $$\mathcal{L}(x) = \tfrac{1}{2}x^TQx + 1 \quad \text{where} \quad Q = 3I$$
+\end{tcolorbox}
+
+\begin{enumerate}[label=(\alph*)]
+    \item What is the dimension of $Q$?
+    \item What is the gradient, $\nabla$, of $\mathcal{L}(x)$
+    \item What is the hessian, $\nabla^2$, of $\mathcal{L}(x)$
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Your solution to Problem 5      %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{enumerate}
+%     \item[(a)]
+%     \item[(b)]
+%     \item[(c)]
+% \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\vfill
+\begin{tiny}Updated \today \end{tiny}
+\end{document}
